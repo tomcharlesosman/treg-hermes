@@ -6,7 +6,7 @@ Use one Hermes connection to find a tool by task, inspect its inputs and price, 
 
 ## Install and try a free lookup
 
-1. Install the package with `hermes plugins install tomcharlesosman/treg-hermes`, then run `hermes plugins enable treg`.
+1. Use Hermes 0.23.3 or later with MCP support enabled in `hermes setup`. Install and enable the package with `hermes plugins install tomcharlesosman/treg-hermes --enable`.
 2. Put a scoped Treg team token in your Hermes profile's `TREG_TOKEN` secret. On Desktop, open the Treg plugin settings and set **Treg team token**. Start a new Hermes session.
 3. Ask: **Use Treg’s catalog_get to inspect treg.web.search. Show its required search input and its variable pricing note. Stop after the lookup.**
 
