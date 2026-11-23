@@ -1,0 +1,22 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "treg",
+  "version": "1.0.0",
+  "description": "Discover live data, connected-account actions, media generation and your team's own tools from Hermes.",
+  "homepage": "https://treg.to",
+  "repository": "https://github.com/tomcharlesosman/treg-hermes",
+  "extensions": {
+    "com.nousresearch.hermes": {
+      "servers": { "treg": { "trust": "untrusted" } },
+      "config_schema": {
+        "team_token": {
+          "type": "secret",
+          "env": "TREG_TOKEN",
+          "label": "Treg team token",
+          "description": "Used by Hermes to connect to the hosted Treg MCP server.",
+          "required": true
+        }
+      }
+    }
+  }
+}
