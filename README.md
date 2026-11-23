@@ -2,13 +2,31 @@
 
 <img src="https://raw.githubusercontent.com/superdesigndev/treg/4b4d16db49f4138552022771994600f4daf21a2b/src/treg/web/media/brand/logo-400.png" alt="Treg" width="80" height="80">
 
-Use one Hermes connection to find a tool by task, inspect its inputs and price, and call it with your team's permissions. Search the web and SEO data, research people and companies, publish through connected accounts, or generate images, video and audio. Tools your team registered are available through the same connection.
+Treg is **OpenRouter for agent tools**. From Hermes, you can use Treg to access **4,200+ tools** through one connection, alongside your team’s own tools. Ask Hermes to check search rankings and backlinks, enrich a company profile, publish a post through a connected account, or generate an image, video or voiceover. Hermes can compare providers and inspect each tool’s inputs and price before calling it. [Explore the Treg catalog](https://treg.to/catalog)
 
-## Install and try a free lookup
+## Connect from Hermes
 
-1. Use Hermes 0.23.3 or later with MCP support enabled in `hermes setup`. Install and enable the package with `hermes plugins install tomcharlesosman/treg-hermes --enable`.
-2. Put a scoped Treg team token in your Hermes profile's `TREG_TOKEN` secret. On Desktop, open the Treg plugin settings and set **Treg team token**. Start a new Hermes session.
-3. Ask: **Use Treg’s catalog_get to inspect treg.web.search. Show its required search input and its variable pricing note. Stop after the lookup.**
+Use one setup per Hermes profile. Both connect to the same hosted Treg catalog.
+
+**Connect directly today.** With MCP support enabled in Hermes, run:
+
+```sh
+hermes mcp add treg --url https://treg.to/mcp/ --auth oauth
+```
+
+Authorize your Treg account in the browser and start a new Hermes session.
+
+**Install the marketplace plugin once listed.** On Hermes 0.23.3 or later with MCP support, run:
+
+```sh
+hermes plugins install treg --enable
+```
+
+Open the Treg plugin settings, set **Treg team token** to a scoped `TREG_TOKEN`, and start a new session. The plugin adds a Treg workflow skill and configures Hermes to request approval for write-capable calls.
+
+## Try a free lookup
+
+Ask Hermes: **Use Treg’s catalog_get to inspect treg.web.search. Show the required search input and the pricing note. Stop after the lookup.**
 
 The returned card identifies `treg.web.search`, gives a POST example with the `q` input and explains how the chosen provider affects the price. Looking up the card is free.
 
@@ -23,7 +41,7 @@ The returned card identifies `treg.web.search`, gives a POST example with the `q
 
 ## Data, permissions and billing
 
-Hermes sends the bearer token and requested inputs over HTTPS to `https://treg.to/mcp/`. Discovery sends queries or tool IDs to Treg. Execution can send supplied inputs and media to the selected provider, publish content, change connected accounts, or spend the team's prepaid balance. Read the tool card before execution. Connected accounts can incur their own provider charges. Treg keeps downstream provider credentials on its server.
+When using the plugin, Hermes sends the scoped team token and requested inputs over HTTPS to `https://treg.to/mcp/`. Discovery sends queries or tool IDs to Treg. Execution can send supplied inputs and media to the selected provider, publish content, change connected accounts, or spend the team's prepaid balance. Read the tool card before execution. Connected accounts can incur their own provider charges. Treg keeps downstream provider credentials on its server.
 
 This portable package contains a server declaration and a workflow skill. It launches no local command or background process and adds no telemetry. Hermes resolves the token from its own environment or profile secret store. The server is marked `untrusted` so Hermes applies its write-tool approval policy. Tools and prices are served live by Treg. The plugin commit pins the client configuration and skill.
 

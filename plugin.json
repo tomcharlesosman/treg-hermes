@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "treg",
-  "version": "1.0.0",
-  "description": "Discover live data, connected-account actions, media generation and your team's own tools from Hermes.",
+  "version": "1.0.1",
+  "description": "Treg is OpenRouter for agent tools. Hermes users can access 4,200+ tools for live data, actions and media generation, alongside their team’s own tools.",
   "homepage": "https://treg.to",
   "repository": "https://github.com/tomcharlesosman/treg-hermes",
   "extensions": {
